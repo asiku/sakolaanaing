@@ -1,0 +1,186 @@
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;}
+
+
+  /*nav menu*/
+  nav{clear: both;}
+  nav ul{list-style-type: none;padding: 0;margin: 25px 0 0;}
+  nav li { border: 0px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color:#310438;
+  -webkit-box-shadow: #B3B3B3 2px 2px 2px;
+  -moz-box-shadow: #B3B3B3 2px 2px 2px;
+  box-shadow: #B3B3B3 2px 2px 2px;
+  padding: 10px 1em; margin: 8px 0 0; text-align: center;}
+  nav li a{text-decoration: none;font-size: 1.2em;color:#FFF;}
+
+  header h2{ padding: 0.1em;}
+  header h2>span{font-weight: normal;font-size: 20px;color: #333333;}
+
+  /*layout*/
+
+  #fullpage{max-width: 63em;margin: auto;}
+
+
+
+  @media only screen and (max-width:50em) {
+    header,aside,footer,.c-absen{
+      border: 1px solid #111;
+      padding: 10px 1em;
+      margin: 0 5% 10px;
+    }
+
+  }
+
+.c-caritgl:after{
+  content: "";
+    clear: both;
+    display: table;
+}
+.ulcari{list-style-type: none;}
+.ulcari li{display: block;float: right;}
+.ulcari li input[type=text]{text-align: center;width: 100px;}
+.caribulan{font-weight:bold;font-size: 16px;font-family: 'Ubuntu';
+padding-right: 4px;color:#FFF;}
+.cariimg{vertical-align: middle;width: 20px;}
+.buledimg{padding-right: 20px;}
+
+/* profile*/
+#fotoprofile{border-radius: 50%;
+  height:100px;
+  width:100px;
+  max-width: 100px;
+  border: 3px inset #5A7ADF;
+  /*border-style: solid;*/
+  border-width: 3px;
+  /*border-color: #5A7ADF;*/
+  display: block;
+  margin-left: 13px;
+  /*margin-right: auto;*/
+  overflow: hidden;
+}
+#i-fotoprofile{width: 100%;}
+
+
+/*.c-profile{
+  border: 1px solid #FFF;
+}*/
+
+.c-profile ul{list-style-type: none;
+}
+
+.buledprofiles{margin-left: -17px;}
+
+/*.c-tablepresensi{
+  border: 1px solid #FFF;
+}*/
+
+.c-totalpresensi{
+  border: 1px solid #FFF;
+}
+
+.c-totalpresensi{clear: both;}
+
+.tablepresensix{padding-top: 18px;}
+
+  @media only screen and (min-width:50em) {
+
+    .c-profile{width: 34%;float: left;}
+    .c-tablepresensi{width: 65%;float: right;}
+    .c-absen{width: 66%;float: right;
+    margin-left: 0;padding: 10px 1em;border: 1px solid #111;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    }
+
+    aside{width: 33%;float:left;
+    margin-right: 0;padding: 10px 1em;
+    /*border: 1px solid #111;*/
+    margin-bottom: 10px;
+    margin-top: 10px;
+    }
+
+    footer{clear: both;  padding: 10px 1em; border: 1px solid #111;}
+    nav li{display: block;float: right;margin: 0 5px 0;}
+    nav:after { content: ""; display: table; clear: both; }
+
+    header h2{ padding: 0.8em;}
+
+  }
+
+  .btjadwal ,.btabsen ,.btinfo{
+      margin: -10px 0px 0px -10px;
+      position: relative;
+  }
+
+
+/*list style absen izin*/
+/*.jmlabsen ul{list-style-type: none;}
+.jmlabsen li{display: block;  padding-top: 4px;padding-bottom: 4px;}*/
+
+.titlepresen ul{list-style-type: none;margin-left: -22px; }
+.titlepresen li{display: block;float: left;}
+.titlepresen li>img{margin-top: 2px;padding-right: 3px;}
+/*table*/
+.allpresen{width: 100%;padding-top: 4px;padding-bottom: 1.5em;}
+
+
+/*nav warna*/
+.iabsen{background-color: #FD7400;}
+.ijadwal,.ctgl{background-color: #1F8A70;}
+.iinfo{background-color: #BEDB39;}
+.jmlabsen{background-color: #1E1E1C;width: 100%}
+
+#jmlsakit,#jmlhadir,#jmlizin,#jmlalfa{color:#FFF;font-size: 20px;font-weight: bold;}
+
+.thadir{color:#BEDB39; }
+.tsakit{color:#089C39; }
+.tizin{color:#FD7400; }
+.talfa{color:#FD2A00 }
+.thadir,.tsakit,.tizin,.talfa{font-size: 20px;}
+
+/*.buledhadir{margin-top: 4px;position: relative;}*/
+
+.d-absen{ border: 1px solid #111;
+  padding: 1px 0.5em 20px;
+    /*overflow: auto;*/
+background-color: #021322;
+}
+
+/*.d-absen:after{
+content: "";
+clear: both;
+display: table;
+}*/
+
+.titlepresen{color:#1F8A70;padding: 8px;}
+/*.ctgl{padding: 1em;}*/
+
+header{margin-top: 2px;}
+
+/*font*/
+h1{font-size: 2em;}
+h2{font-size: 1.5em;color: #6B7363;}
+#dtgl p>span {font-size: 2.2em;}
+#dtgl p {line-height: 1.2;}
+#dtgl{font-size: 1.5em;color: #FFF;padding: 1px 0.5em 0;}
+
+/*h1,h2{font-weight: bold;margin: 5px 0;}*/
+
+/*tgl*/
+.txttgl{
+  border: 1px solid #cccccc;
+  outline:0;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+
+}
+
+
+/*gambar*/
+header img{ float: left; max-width: 100%; padding: 5px;}
