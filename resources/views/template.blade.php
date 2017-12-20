@@ -145,6 +145,25 @@ function fillthn(){
   }
 }
 
+function setImgpr(n,st){
+  var img="";
+  if (n===1&&st==="h"){
+  img="<img  src=" + "{{asset('gbrs/buledhadir.png')}}" + " alt=hadir>";
+  }
+  else if (n===1&&st==="s") {
+  img="<img  src=" + "{{asset('gbrs/buledsakit.png')}}" + " alt=alfa>";
+  }
+  else if (n===1&&st==="i") {
+  img="<img  src=" + "{{asset('gbrs/buledizin.png')}}" + " alt=alfa>";
+  }
+
+  else if (n===1&&st==="a") {
+  img="<img  src=" + "{{asset('gbrs/buledalfa.png')}}" + " alt=alfa>";
+  }
+
+  return  img;
+}
+
 function gTbp(ns){
 
 // console.log( "{{url('lst_pr')}}" + "/" + ns);
@@ -154,20 +173,32 @@ function gTbp(ns){
     url: "{{url('lst_pr')}}" + "/" + ns,
     success: function( response ) {
 
-      console.log('list: '+response);
+      // console.log('list: '+response);
 
 
       var t = JSON.parse(response);
-  console.log('jml:'+t.length);
-      console.log("inmilah: "+t[0].nis);
+  // console.log('jml:'+t.length);
+  //     console.log("inmilah: "+t[0].nis);
 
       var data=$.map(t,function(ign,index) {
+
+         var hd=t[index].hadir;
+         var hs=t[index].sakit;
+         var hi=t[index].izin;
+         var ha=t[index].alfa;
+
+
+
         return "<tr>" +"<td>"+t[index].tgl_absen+ "</td>" +
         "<td>"+t[index].terlambat+ "</td>" +
-        "<td>"+t[index].hadir+ "</td>" +
-        "<td>"+t[index].sakit+ "</td>" +
-        "<td>"+t[index].izin+ "</td>" +
-        "<td>"+t[index].alfa+ "</td>"
+        // "<td>"+t[index].hadir+ "</td>" +
+        "<td>"+ setImgpr(t[index].hadir,"h") + "</td>" +
+        // "<td>"+t[index].sakit+ "</td>" +
+        "<td>"+setImgpr(t[index].sakit,"s")+ "</td>" +
+        // "<td>"+t[index].izin+ "</td>" +
+        "<td>"+setImgpr(t[index].izin,"i")+ "</td>" +
+        // "<td>"+t[index].alfa+ "</td>"
+        "<td>"+setImgpr(t[index].alfa,"a") + "</td>"
          +"</tr>";
       });
 
