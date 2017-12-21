@@ -20,6 +20,8 @@ Route::get('/gettgl','PagesController@GetTgl');
 
 Route::get('cekpr','PagesController@Cekabsen_cs');
 
+Route::get('getabsenl/{nis}','PagesController@GetTotabsen');
+
 Route::get('lst_pr/{nis}','PagesController@Lst_presensi');
 
 // Route::get('getabsen/{tgl}','PagesController@GetAbsen');

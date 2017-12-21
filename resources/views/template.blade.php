@@ -235,13 +235,28 @@ function gNp(){
     success: function( response ) {
 
       console.log('np: '+response);
-      var t = JSON.parse(response);
+      // = JSON.parse(response)
+      let t= JSON.parse(response) ;
+console.log("nilai t:"+t);
+console.log( t == "");
 
-       document.getElementById("np").innerHTML=t[0]['nis'];
-       document.getElementById("na").innerHTML=t[0]['nama'];
-       document.getElementById("le").innerHTML=t[0]['tk'];
+      if ( t == "") {
+        document.getElementById("np").innerHTML="";
+        document.getElementById("na").innerHTML="";
+        document.getElementById("le").innerHTML="";
 
-      gTbp(t[0]['nis']);
+        // tingalikeun tabel
+        gTbp("xxxx");
+
+      }
+      else {
+        document.getElementById("np").innerHTML=t[0]['nis'];
+        document.getElementById("na").innerHTML=t[0]['nama'];
+        document.getElementById("le").innerHTML=t[0]['tk'];
+
+       // tingalikeun tabel
+       gTbp(t[0]['nis']);
+      }
 
     }
   });
@@ -327,7 +342,8 @@ function getcalcabsen() {
     url: "{{url('getabsen')}}",
     success: function( response ) {
 
-      console.log('getabsen:'+response);
+      // console.log('getabsen:'+response);
+
       var t = JSON.parse(response);
 
        document.getElementById("jmlhadir").innerHTML=t[0]['toth'];
@@ -335,10 +351,11 @@ function getcalcabsen() {
        document.getElementById("jmlsakit").innerHTML=t[2]['tots'];
        document.getElementById("jmlizin").innerHTML=t[3]['toti'];
 
-      console.log('alfa'+t[1]['tota']);
-      console.log('sakit'+t[2]['tots']);
-      console.log('izin'+t[3]['toti']);
+      // console.log('alfa'+t[1]['tota']);
+      // console.log('sakit'+t[2]['tots']);
+      // console.log('izin'+t[3]['toti']);
 
+      //teangan eta budak nu absen
       gNp();
 
     }

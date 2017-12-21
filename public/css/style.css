@@ -89,8 +89,9 @@ padding-right: 4px;color:#FFF;}
 
   @media only screen and (min-width:50em) {
 
-    .c-profile{width: 34%;float: left;}
+    .c-profile{width: 30%;float: left;}
     .c-tablepresensi{width: 65%;float: right;}
+
     .c-absen{width: 66%;float: right;
     margin-left: 0;padding: 10px 1em;border: 1px solid #111;
     margin-bottom: 10px;

@@ -30,9 +30,9 @@
     <ul>
       <li ><img class="buledprofiles" src="{{asset('gbrs/buledprofile.png')}}" alt="buledhadir">
         <span id="hd">Hadir</span></li>
-      <li id="na">Ayana</li>
-      <li id="np">1510010</li>
-      <li id="le">Kelas 3C</li>
+      <li id="na"></li>
+      <li id="np"></li>
+      <li id="le"></li>
     </ul>
   </div>
 
@@ -42,7 +42,12 @@
   </div>
 
 <div class="c-totalpresensi">
-  table total
+  <ul>
+    <li>hadir</li>
+    <li>sakit</li>
+    <li>izin</li>
+    <li>alfa</li>
+  </ul>
 </div>
 
   </div>
