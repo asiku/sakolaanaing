@@ -43,10 +43,10 @@
 
 <div class="c-totalpresensi">
   <ul>
-    <li>hadir</li>
-    <li>sakit</li>
-    <li>izin</li>
-    <li>alfa</li>
+    <li><span id="jalfa"></span></li>
+    <li><span id="jizin"></span></li>
+    <li><span id="jsakit"></span></li>
+    <li><span id="jhadir"></span></li>
   </ul>
 </div>
 

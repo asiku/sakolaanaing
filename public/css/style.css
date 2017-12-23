@@ -29,7 +29,7 @@
 
   @media only screen and (max-width:50em) {
     header,aside,footer,.c-absen{
-      border: 1px solid #111;
+      /*border: 1px solid #111;*/
       padding: 10px 1em;
       margin: 0 5% 10px;
     }
@@ -79,21 +79,30 @@ padding-right: 4px;color:#FFF;}
   border: 1px solid #FFF;
 }*/
 
-.c-totalpresensi{
+/*.c-totalpresensi{
   border: 1px solid #FFF;
+}*/
+
+.c-totalpresensi{clear: both;overflow: auto;}
+
+.c-totalpresensi ul{list-style-type: none;color: #FFF;font-size: 14px;font-family: 'Ubuntu';
 }
 
-.c-totalpresensi{clear: both;}
+.c-totalpresensi span{display: inline;float: right;border: 1px solid #1F8A70;
+  margin-right: 4px;border-radius: 8px;padding: 10px;}
 
 .tablepresensix{padding-top: 18px;}
 
   @media only screen and (min-width:50em) {
 
+    .f-copy{width: 30%;float: left;}
+    .f-msg{width: 70%;float: right;}
     .c-profile{width: 30%;float: left;}
     .c-tablepresensi{width: 65%;float: right;}
 
     .c-absen{width: 66%;float: right;
-    margin-left: 0;padding: 10px 1em;border: 1px solid #111;
+    margin-left: 0;padding: 10px 1em;
+    /*border: 1px solid #111;*/
     margin-bottom: 10px;
     margin-top: 10px;
     }
@@ -105,7 +114,10 @@ padding-right: 4px;color:#FFF;}
     margin-top: 10px;
     }
 
-    footer{clear: both;  padding: 10px 1em; border: 1px solid #111;}
+    footer{clear: both;  padding: 10px 1em;
+      /*border: 1px solid #111;*/
+    }
+    nav ul{margin-right:16px;}
     nav li{display: block;float: right;margin: 0 5px 0;}
     nav:after { content: ""; display: table; clear: both; }
 
@@ -137,6 +149,10 @@ padding-right: 4px;color:#FFF;}
 .jmlabsen{background-color: #1E1E1C;width: 100%}
 
 #jmlsakit,#jmlhadir,#jmlizin,#jmlalfa{color:#FFF;font-size: 20px;font-weight: bold;}
+
+.f-copy{background-color: #1E1E1C;padding-left: 8px;}
+.f-info{background-color: #0A0A0A;overflow: hidden;color: #FFF;font-size: 14px;font-family: 'Ubuntu'}
+.f-msg{position: relative;left:10px;}
 
 .thadir{color:#BEDB39; }
 .tsakit{color:#089C39; }

@@ -89,6 +89,7 @@ border-collapse: collapse;}
 #th-or{color: #FD7400;}
 .th-p{color:#A6BCCF;}
 #tablepresensi tr:hover {background-color: #BEDB39;cursor: pointer;}
+/*#c-totalpresensi li{font-family: 'Ubuntu';}*/
 </style>
 
 <!-- <script>
@@ -247,7 +248,7 @@ console.log( t == "");
 
         // tingalikeun tabel
         gTbp("xxxx");
-
+        setJmlp("xxxx");
       }
       else {
         document.getElementById("np").innerHTML=t[0]['nis'];
@@ -256,6 +257,7 @@ console.log( t == "");
 
        // tingalikeun tabel
        gTbp(t[0]['nis']);
+       setJmlp(t[0]['nis']);
       }
 
     }
@@ -263,6 +265,49 @@ console.log( t == "");
 
 }
 
+function setJmlp(ns){
+  $.ajax({
+
+    url: "{{url('getabsenl')}}"+ "/" + ns,
+    success: function( response ) {
+
+      // console.log('getabsen:'+response);
+
+      var t = JSON.parse(response);
+      console.log('jml absen;'+t[0]['toth']);
+
+       document.getElementById("jhadir").innerHTML="Hadir "+t[0]['toth'];
+       document.getElementById("jalfa").innerHTML="Alfa "+t[1]['tota'];
+       document.getElementById("jsakit").innerHTML="Sakit "+t[2]['tots'];
+       document.getElementById("jizin").innerHTML="Izin "+t[3]['toti'];
+
+    }
+  });
+}
+
+
+function setAnim(){
+  let b = parseInt($(".f-msg").css("width"));
+
+  if(parseInt($(".f-msg").css("left"))>b){
+    $(".f-msg").css({left:0});
+
+  }
+// else if (parseInt($(".f-msg").css("left"))==100) {
+// alert('hore');
+// //   $( ".f-msg" ).animate(
+// //     { "left": "200px" }
+// //
+// //     , "slow" );
+//  }
+ $( ".f-msg" ).animate(
+   { "left": "+=50px" }
+
+   , "slow" );
+
+
+
+}
 
 $(document).ready(function () {
 
@@ -366,6 +411,7 @@ function getcalcabsen() {
 
 setInterval(function(){
 
+ setAnim();
 
     getcalcabsen();
 
