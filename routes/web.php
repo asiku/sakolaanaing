@@ -22,6 +22,9 @@ Route::get('cekpr','PagesController@Cekabsen_cs');
 
 Route::get('getabsenl/{nis}','PagesController@GetTotabsen');
 
+
+Route::get('get_pro/{nis}','PagesController@GetProfile');
+
 Route::get('lst_pr/{nis}','PagesController@Lst_presensi');
 
 // Route::get('getabsen/{tgl}','PagesController@GetAbsen');

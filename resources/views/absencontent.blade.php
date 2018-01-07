@@ -29,10 +29,10 @@
 
     <ul>
       <li ><img class="buledprofiles" src="{{asset('gbrs/buledprofile.png')}}" alt="buledhadir">
-        <span id="hd">Hadir</span></li>
-      <li id="na"></li>
-      <li id="np"></li>
-      <li id="le"></li>
+        <span id="hd"></span></li>
+      <li id="na" value=""></li>
+      <li id="np" value=""></li>
+      <li id="le" value=""></li>
     </ul>
   </div>
 

@@ -180,7 +180,7 @@ function gTbp(ns){
       var t = JSON.parse(response);
   // console.log('jml:'+t.length);
   //     console.log("inmilah: "+t[0].nis);
-
+      // masalah bug slowly  view
       var data=$.map(t,function(ign,index) {
 
          var hd=t[index].hadir;
@@ -214,7 +214,7 @@ function gTbp(ns){
       var tbclose="</table>"
 
       document.getElementsByClassName("tablepresensix")[0].innerHTML=tb+tb1+tb2+datas+tbclose;
-
+      data=null;
 
       // t[0]['nis']
 
@@ -242,26 +242,36 @@ console.log("nilai t:"+t);
 console.log( t == "");
 
       if ( t == "") {
+        document.getElementById("hd").innerHTML="";
         document.getElementById("np").innerHTML="";
         document.getElementById("na").innerHTML="";
         document.getElementById("le").innerHTML="";
 
-        // tingalikeun tabel
-        gTbp("xxxx");
-        setJmlp("xxxx");
+        document.getElementById("np").setAttribute("value","");
+        document.getElementById("na").setAttribute("value","");
+        document.getElementById("le").setAttribute("value","");
       }
       else {
+        document.getElementById("hd").innerHTML="Hadir";
+        // document.getElementById("np").value="bak";
+        // document.getElementById("na").value=t[0]['nama'];
+        // document.getElementById("le").value=t[0]['tk'];
+
         document.getElementById("np").innerHTML=t[0]['nis'];
         document.getElementById("na").innerHTML=t[0]['nama'];
         document.getElementById("le").innerHTML=t[0]['tk'];
 
+        document.getElementById("np").setAttribute("value",t[0]['nis']);
+        document.getElementById("na").setAttribute("value",t[0]['nama']);
+        document.getElementById("le").setAttribute("value",t[0]['tk']);
        // tingalikeun tabel
-       gTbp(t[0]['nis']);
-       setJmlp(t[0]['nis']);
+
       }
 
     }
+
   });
+
 
 }
 
@@ -403,6 +413,8 @@ function getcalcabsen() {
       //teangan eta budak nu absen
       gNp();
 
+      gTbp(document.getElementById("np").getAttribute('value'));
+      setJmlp(document.getElementById("np").getAttribute('value'));
     }
   });
 
