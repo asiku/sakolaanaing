@@ -50,20 +50,22 @@ padding-right: 4px;color:#FFF;}
 .buledimg{padding-right: 20px;}
 
 /* profile*/
-#fotoprofile{border-radius: 50%;
+#fotoprofile{
+  border-radius: 50%;
   height:100px;
   width:100px;
   max-width: 100px;
   border: 3px inset #5A7ADF;
-  /*border-style: solid;*/
   border-width: 3px;
-  /*border-color: #5A7ADF;*/
-  display: block;
   margin-left: 13px;
-  /*margin-right: auto;*/
   overflow: hidden;
+
+
 }
-#i-fotoprofile{width: 100%;}
+#i-fotoprofile{
+  height: 100px;
+  width: 100%;
+}
 
 
 /*.c-profile{

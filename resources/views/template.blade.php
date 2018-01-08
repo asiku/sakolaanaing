@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="widht=device-width,initial-scale=1">
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
     <title> Schooll Kiosk </title>
 <!-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> -->
 <!-- <link rel="stylesheet" href="{{ asset('jquerys/jquery-ui.css') }}"> -->
@@ -260,6 +263,11 @@ console.log( t == "");
         document.getElementById("np").innerHTML=t[0]['nis'];
         document.getElementById("na").innerHTML=t[0]['nama'];
         document.getElementById("le").innerHTML=t[0]['tk'];
+
+        document.getElementById("i-fotoprofile").setAttribute("src",t[0]['pth']);
+
+//         fotoprofile
+// $( "#i-fotoprofile" ).detach();
 
         document.getElementById("np").setAttribute("value",t[0]['nis']);
         document.getElementById("na").setAttribute("value",t[0]['nama']);

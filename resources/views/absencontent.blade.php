@@ -24,7 +24,7 @@
   <div class="c-profile">
 
     <div id="fotoprofile">
-    <img id="i-fotoprofile" src="{{asset('gbrs/ayana.jpg')}}" alt="buledhadir">
+    <img id="i-fotoprofile" src="{{asset('gbrs/no_photo.jpg')}}" alt="fotosiswa">
     </div>
 
     <ul>
