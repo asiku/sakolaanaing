@@ -93,7 +93,8 @@ padding-right: 4px;color:#FFF;}
 .c-totalpresensi span{display: inline;float: right;border: 1px solid #1F8A70;
   margin-right: 4px;border-radius: 8px;padding: 10px;}
 
-.tablepresensix{padding-top: 18px;}
+.tablepresensix{padding-top: 18px;text-align: center;}
+.tablepresensix #loadtb_img{height: 120px;height: 120px;padding-top: 20px;}
 
   @media only screen and (min-width:50em) {
 

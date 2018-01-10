@@ -32,10 +32,10 @@
   src: url('{{ asset('fonts/Ubuntu-Light.ttf') }}');
 }
 
-@font-face {
+/*@font-face {
   font-family: FontAwesome;
   src: url('{{ asset('fonts/fontawesome-webfont.ttf') }}');
-}
+}*/
 
 
 @font-face {
@@ -125,6 +125,9 @@ border-collapse: collapse;}
 
 <script type="text/javascript">
 
+var data=null;
+var datas=null;
+
 var monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"
 ];
@@ -175,16 +178,28 @@ function gTbp(ns){
   $.ajax({
 
     url: "{{url('lst_pr')}}" + "/" + ns,
+    error: function(){
+
+ // document.getElementById("loadtb_img").setAttribute("src","{{asset('gbrs/loader.gif')}}");
+ // $(".tablepresensix").hide();
+// alert("tessss");
+        // window.location.reload();
+      var tmp=  "<img id=loadtb_img src="+"{{asset('gbrs/loader.gif')}}" +" alt=Loading...>";
+        document.getElementsByClassName("tablepresensix")[0].innerHTML=tmp;
+      },
     success: function( response ) {
 
       // console.log('list: '+response);
+// $(".tablepresensix").show();
+// $("#loadtb_img").hide();
 
+      let t = JSON.parse(response);
 
-      var t = JSON.parse(response);
-  // console.log('jml:'+t.length);
-  //     console.log("inmilah: "+t[0].nis);
-      // masalah bug slowly  view
-      var data=$.map(t,function(ign,index) {
+// alert(ns+" "+t[0].tgl_absen);
+      data=null;
+      datas=null;
+
+        data=$.map(t,function(ign,index) {
 
          var hd=t[index].hadir;
          var hs=t[index].sakit;
@@ -207,17 +222,17 @@ function gTbp(ns){
       });
 
 
-        // console.log("data: "+data);
-
-     var datas= data.toString().replace(/,/g,"");
+      datas= data.toString().replace(/,/g,"");
 
       var tb="<table id=tablepresensi>";
       var tb1 ="<tr><th><span id=th-or>Tanggal absen</span></th><th><span class=th-p>Terlambat</span></th><th><span class=th-p>Hadir</span></th><th><span class=th-p>Sakit</span></th>";
       var tb2="<th><span class=th-p>Izin</span></th><th><span class=th-p>Alfa</span></th></tr>";
       var tbclose="</table>"
 
+      // document.getElementsByClassName("tablepresensix")[0].innerHTML=tb+tb1+tb2+datas+tbclose;
       document.getElementsByClassName("tablepresensix")[0].innerHTML=tb+tb1+tb2+datas+tbclose;
-      data=null;
+
+      t=null;
 
       // t[0]['nis']
 
@@ -227,8 +242,60 @@ function gTbp(ns){
       //  document.getElementById("le").innerHTML=t[0]['tk'];
 
     }
+    ,
+    timeout: 3000
   });
 
+}
+
+function cekTap(){
+  $.ajax({
+
+    url: "{{url('cekpr')}}",
+    success: function( response ) {
+
+      // console.log('getabsen:'+response);
+
+      var t = JSON.parse(response);
+
+
+      if (t[0]['status_tap']=="tap") {
+        console.log("z:"+"Tap");
+        data=null;
+        datas=null;
+
+
+        $.when(
+              gNp(),setJmlp(document.getElementById("np").getAttribute('value'))
+            ).then(function(){
+            // alert('All AJAX Methods Have Completed!');
+        });
+      }
+      else {
+        console.log("z:"+"Remove");
+        data=null;
+        datas=null;
+        // var parent = document.getElementsByClassName("tablepresensix")[0];
+
+
+        // parent.removeChild(child);
+
+        document.getElementById("hd").innerHTML="Kartu Belum di TAP!";
+        document.getElementById("np").innerHTML="";
+        document.getElementById("na").innerHTML="";
+        document.getElementById("le").innerHTML="";
+        var imgt= "<img id=loadtb_img src=" +"{{asset('gbrs/loader.gif')}}" +" alt=Loading...>";
+        var imgn="{{asset('gbrs/no_photo.jpg')}}";
+        document.getElementsByClassName("tablepresensix")[0].innerHTML=imgt;
+        document.getElementById("i-fotoprofile").setAttribute("src",imgn);
+        document.getElementById("jhadir").innerHTML="Hadir ";
+        document.getElementById("jalfa").innerHTML="Alfa ";
+        document.getElementById("jsakit").innerHTML="Sakit ";
+        document.getElementById("jizin").innerHTML="Izin ";
+      }
+
+    }
+  });
 }
 
 function gNp(){
@@ -236,13 +303,17 @@ function gNp(){
   $.ajax({
 
     url: "{{url('cekpr')}}",
+    error: function(){
+        // alert("Gagal Request Tekan F5 lalu Tap lagi!")
+        window.location.reload();
+    },
     success: function( response ) {
 
       console.log('np: '+response);
       // = JSON.parse(response)
       let t= JSON.parse(response) ;
-console.log("nilai t:"+t);
-console.log( t == "");
+// console.log("nilai t:"+t);
+// console.log( t == "");
 
       if ( t == "") {
         document.getElementById("hd").innerHTML="";
@@ -272,11 +343,14 @@ console.log( t == "");
         document.getElementById("np").setAttribute("value",t[0]['nis']);
         document.getElementById("na").setAttribute("value",t[0]['nama']);
         document.getElementById("le").setAttribute("value",t[0]['tk']);
-       // tingalikeun tabel
 
+        gTbp(t[0]['nis']);
+       // tingalikeun tabel
+// alert(t[0].nis);
       }
 
-    }
+    },
+    timeout: 3000
 
   });
 
@@ -292,7 +366,7 @@ function setJmlp(ns){
       // console.log('getabsen:'+response);
 
       var t = JSON.parse(response);
-      console.log('jml absen;'+t[0]['toth']);
+      // console.log('jml absen;'+t[0]['toth']);
 
        document.getElementById("jhadir").innerHTML="Hadir "+t[0]['toth'];
        document.getElementById("jalfa").innerHTML="Alfa "+t[1]['tota'];
@@ -419,10 +493,7 @@ function getcalcabsen() {
       // console.log('izin'+t[3]['toti']);
 
       //teangan eta budak nu absen
-      gNp();
 
-      gTbp(document.getElementById("np").getAttribute('value'));
-      setJmlp(document.getElementById("np").getAttribute('value'));
     }
   });
 
@@ -435,6 +506,21 @@ setInterval(function(){
 
     getcalcabsen();
 
+    // gNp();
+    //
+    // gTbp(document.getElementById("np").getAttribute('value'));
+
+
+    cekTap();
+
+    // $.when(
+    //       gNp(),gTbp(document.getElementById("np").getAttribute('value')),setJmlp(document.getElementById("np").getAttribute('value'))
+    //     ).then(function(){
+    //     // alert('All AJAX Methods Have Completed!');
+    // });
+
+
+
     $.ajax({
       url: "{{url('gettgl')}}",
       success: function( response ) {
@@ -445,7 +531,7 @@ setInterval(function(){
 
       }
     });
-},1000);
+},3000);
 });
 </script>
 

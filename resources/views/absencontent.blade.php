@@ -38,6 +38,7 @@
 
   <div class="c-tablepresensi">
     <div class="tablepresensix">
+      <img id="loadtb_img" src="{{asset('gbrs/loader.gif')}}" alt="Loading...">
     </div>
   </div>
 
